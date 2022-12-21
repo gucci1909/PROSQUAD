@@ -14,7 +14,7 @@ export default function Signin() {
           <h2 className={styles.sign}>Sign in</h2>
           <div className={styles.inputBox}>
             <input type="text" required="required" />
-            <span>Username</span>
+            <span>Email</span>
             <i />
           </div>
           <div className={styles.inputBox}>
@@ -24,7 +24,7 @@ export default function Signin() {
           </div>
           <div className={styles.links}>
             <a href="#">Forgot Password ?</a>
-            <a href="#">Signup</a>
+            <a href="signup">Signup</a>
           </div>
           <input defaultValue="Login" className={styles.submit} />
         </form>
