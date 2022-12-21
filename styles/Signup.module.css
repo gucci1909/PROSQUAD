@@ -17,7 +17,7 @@
 .box {
   position: relative;
   width: 380px;
-  height: 640px;
+  height: 540px;
   background: #1c1c1c;
   border-radius: 8px;
   overflow: hidden;
@@ -150,6 +150,7 @@
   /* width: 120px; */
   margin-top: 10px;
   color: black;
+  
 }
 /* input[type="submit"]:active  */
 .submit:active {
@@ -172,8 +173,8 @@
   margin-top: -12px;
   margin-left: 8px;
 }
-.google p {
-  margin-top: -35px;
+.google{
+  font-size: 12px;
 }
 
 .github {
@@ -187,11 +188,7 @@
   margin-top: 10px;
   color: black;
 }
-.github img {
-  width: 45px;
-  margin-top: -12px;
-  margin-left: 12px;
-}
-.github p {
-  margin-top: -35px;
+
+.github{
+  font-size: 12px;
 }

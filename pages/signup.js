@@ -2,6 +2,7 @@ import styles from '../styles/Signup.module.css'
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react'
+import {Button, Link} from "@chakra-ui/react"
 
 export default function Signin() {
     useEffect(() => {
@@ -17,11 +18,7 @@ export default function Signin() {
                         <span>Name</span>
                         <i />
                     </div>
-                    <div className={styles.inputBox}>
-                        <input type="text" required="required" />
-                        <span>Phone</span>
-                        <i />
-                    </div>
+                  
                     <div className={styles.inputBox}>
                         <input type="text" required="required" />
                         <span>Email</span>
@@ -32,22 +29,13 @@ export default function Signin() {
                         <span>Password</span>
                         <i />
                     </div>
-                    <input defaultValue="Signup" className={styles.submit} />
-                    <div>
-                        <button className={styles.google}>
-                            <img src='https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png' alt='google'></img>
-                            <p>Signup with Google</p>
-                        </button>
-                    </div>
-                    <div>
-                        <button className={styles.github}>
-                            <img src='https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png' alt='google'></img>
-                            <p>Signup with GitHub</p>
-                        </button>
-                    </div>
+                    <Button className={styles.submit}>Signup</Button>
+                    <Button className={styles.submit}>Student Access</Button>
+                    <Button className={styles.submit}>Teacher Access</Button>
+                  
                     <div className={styles.links}>
-                        <a href="#">Already Have Account ?</a>
-                        <a href="signin">Signin</a>
+                        <Link to="#">Already Have Account ?</Link>
+                        <Link href='/signin'>Signin</Link>
                     </div>
 
                 </form>

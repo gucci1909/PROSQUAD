@@ -1,13 +1,34 @@
-import Link from "next/link";
-import styles from '../styles/Home.module.css'
+import React , {useEffect} from 'react'
+import styles from '../styles/Navbar.module.css';
+import { Button,Link } from '@chakra-ui/react';
 
-export default function Navbar() {
+const Navbar = () => {
+return (
+  <div>
 
-    return (
-        <>
-            <Link href="signin">Signin</Link>
-            <Link href="signup">Signup</Link>
-        </>
-    )
+    <div className={styles.container}>
 
+
+
+    <nav className={styles.nav}>
+   <ul className={styles.items}>
+    <li>Home</li>
+    <li>teacher</li>
+    <li>student</li>
+    <li>courses</li>
+   </ul>
+    </nav>
+    </div>
+    </div>
+ )  
 }
+
+
+
+
+
+
+
+
+
+export default Navbar;
