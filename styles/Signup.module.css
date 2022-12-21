@@ -133,10 +133,19 @@
   color: #8f8f8f;
   text-decoration: beige;
 }
-.links a:hover,
 .links a:nth-child(2) {
   color: #45f3ff;
+  font-size: 15px;
 }
+.links p{
+  color: white;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.links p:hover{
+  color: #45f3ff;
+}
+
 /* input[type="submit"] */
 .submit {
   border: none;
