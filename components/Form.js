@@ -8,7 +8,7 @@ import {
 	InputRightElement,
 } from "@chakra-ui/react";
 import React from "react";
-import styles from "../styles/signup.module.css"
+import styles from "../styles/Signup.module.css"
 
 const Form = ({ handleInput, fullname, email, password }) => {
 	const [show, setShow] = React.useState(false);
