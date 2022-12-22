@@ -1,4 +1,3 @@
-
 import styles from "../styles/Navbar.module.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -35,6 +34,8 @@ export default function Navbar() {
 						<Link href="signin" className={styles.sign}>Signin</Link>
 						<Link href="signup" className={styles.sign}>Signup</Link>
 						<Link href="dashboard" className={styles.sign}>Dashboard</Link>
+						<Link href="cart" className={styles.sign}>Cart</Link>
+
 					</form>
 
 				</div>
