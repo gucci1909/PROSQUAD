@@ -3,7 +3,22 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 import { useEffect, useState } from 'react'
-import { Button, Link } from "@chakra-ui/react"
+
+import Navbar from "../components/navbar";
+import {
+	Button,
+	Center,
+	Divider,
+	Flex,
+	Link,
+	Tab,
+	TabList,
+	TabPanel,
+	TabPanels,
+	Tabs,
+	Text,
+} from "@chakra-ui/react";
+import Form from "../components/Form";
 
 
 export default function Signin() {
@@ -11,47 +26,103 @@ export default function Signin() {
         Aos.init({ duration: 2000 })
     })
 
-    const [text, setText] = useState({
-        name: "",
-        email: "",
-        password: ""
-    });
+    // const [text, setText] = useState({
+    //     name: "",
+    //     email: "",
+    //     password: ""
+    // });
 
-    const handleForm = (e) => {
-        setText(e.target.value);
-        console.log(e.target.value);
-    }
+    // const handleForm = (e) => {
+    //     setText(e.target.value);
+    //     console.log(e.target.value);
+    // }
+
+
+
+    const initState = {
+		name: "",
+		email: "",
+		password: "",
+		role: "student",
+	};
+	const [form, setForm] = useState(initState);
+	const handleInput = ({ target: { name, value } }) => {
+		setForm({ ...form, [name]: value });
+	};
+
+	const onClick = () => {
+		setText("");
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(form);
+	};
+
 
     return (
         <div className={styles.container}>
             <div className={styles.box} data-aos='flip-left'>
                 <form autoComplete="off" className={styles.form}>
-                    <h2 className={styles.sign}>Sign up</h2>
-                    <div className={styles.inputBox}>
-                        <input type="text" name="name" value={text.name} onChange={handleForm} required="required" />
-                        <span>Name</span>
-                        <i />
-                    </div>
+				<h2 className={styles.sign}>Sign Up</h2>
 
 
-                    <div className={styles.inputBox}>
-                        <input type="text" name="email" value={text.email} onChange={handleForm} required="required" />
-                        <span>Email</span>
-                        <i />
-                    </div>
-                    <div className={styles.inputBox}>
-                        <input type="password" name="password" value={text.password} onChange={handleForm} required="required" />
-                        <span>Password</span>
-                        <i />
-                    </div>
-                    <Button className={styles.submit}>Signup</Button>
-                    <Button className={styles.submit}>Student Access</Button>
-                    <Button className={styles.submit}>Teacher Access</Button>
+<Tabs isFitted variant="enclosed" className={styles.tab}>
+							<TabList>
+								<Tab 
+									onClick={() => {
+										setForm({ ...form, role: "student" });
+									}}
+								>
+									Student
+								</Tab>
+								<Tab 
+									onClick={() => {
+										setForm({ ...form, role: "teacher" });
+									}}
+								>
+									Teacher
+								</Tab>
+							</TabList>
+							<TabPanels>
+								<TabPanel>
+									<Form {...form} handleInput={handleInput} />
+								</TabPanel>
+								<TabPanel>
+									<Form {...form} handleInput={handleInput} />
+								</TabPanel>
+								{/* <Flex flexDirection={"column"} gap="2" w="90%" m="auto">
+									<Center>
+										<Divider w="30%" />
+										<Text p="2">or continue with</Text>
+										<Divider w="30%" />
+									</Center>
+									<Button
+										colorScheme="whiteAlpha"
+										color={"black"}
+										variant="outline"
+										borderColor={"gray"}
+										leftIcon={<FcGoogle size={"20"} />}
+									>
+										Google
+									</Button>
+									<Button
+										colorScheme="whiteAlpha"
+										color={"black"}
+										variant="outline"
+										leftIcon={<FaGithub size={"20"} />}
+									>
+										GitHub
+									</Button>
+								</Flex> */}
+							</TabPanels>
+						</Tabs>
+						<button className={styles.submit}>Login</button>
 
                     <div className={styles.links}>
                         <Link to="#">Already Have Account ?</Link>
                         <Link href='/signin'>Signin</Link>
                     </div>
+
 
                 </form>
             </div>
