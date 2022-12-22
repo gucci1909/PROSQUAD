@@ -143,52 +143,15 @@
   outline: none;
   padding: 11px 25px;
   text-align: center;
-  background: #45f3ff;
   cursor: pointer;
   border-radius: 4px;
   font-weight: 600;
   /* width: 120px; */
   margin-top: 10px;
   color: black;
-  
+  background-color: #45f3ff !important;
 }
 /* input[type="submit"]:active  */
 .submit:active {
   opacity: 0.8;
-}
-
-.google {
-  text-align: center;
-  background: #45f3ff;
-  cursor: pointer;
-  border-radius: 4px;
-  font-weight: 600;
-  width: 296px;
-  height: 55px;
-  margin-top: 10px;
-  color: black;
-}
-.google img {
-  width: 50px;
-  margin-top: -12px;
-  margin-left: 8px;
-}
-.google{
-  font-size: 12px;
-}
-
-.github {
-  text-align: center;
-  background: #45f3ff;
-  cursor: pointer;
-  border-radius: 4px;
-  font-weight: 600;
-  width: 296px;
-  height: 55px;
-  margin-top: 10px;
-  color: black;
-}
-
-.github{
-  font-size: 12px;
 }
