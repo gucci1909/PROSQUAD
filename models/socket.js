@@ -7,5 +7,5 @@ const chatSchema = new mongoose.Schema({
     versionKey:false,
     timestamps:true
 });
-
-module.exports = mongoose.model("Q&As",chatSchema);
+mongoose.models = {};
+module.exports = mongoose.model("QAs",chatSchema);
