@@ -63,6 +63,8 @@ export async function getServerSideProps(context) {
 	let res = await axios(`http://localhost:3000/api/courses`);
 	let courses = res.data;
 	return {
-		props: courses,
+		props: {
+			All_Courses:courses
+		},
 	};
 }
