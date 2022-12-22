@@ -2,6 +2,8 @@ import styles from '../styles/Signin.module.css'
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from 'react'
+import Navbar from "../components/navbar"
+import { Link } from '@chakra-ui/react';
 
 export default function Signin() {
   useEffect(() => {
@@ -24,6 +26,7 @@ export default function Signin() {
 
   return (
     <>
+     
       <div className={styles.container}>
         <div className={styles.box} data-aos='flip-left'>
           <form autoComplete="off" className={styles.form}>
@@ -39,8 +42,8 @@ export default function Signin() {
               <i />
             </div>
             <div className={styles.links}>
-              <a href="#">Forgot Password ?</a>
-              <a href="signup">Signup</a>
+              <Link href="#">Forgot Password ?</Link>
+              <Link href="signup">Signup</Link>
             </div>
             <button className={styles.submit} onClick={onClick}>Login</button>
           </form>
