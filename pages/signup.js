@@ -1,8 +1,10 @@
 import styles from '../styles/Signup.module.css'
 import Aos from "aos";
 import "aos/dist/aos.css";
+
 import { useEffect, useState } from 'react'
 import { Button, Link } from "@chakra-ui/react"
+
 
 export default function Signin() {
     useEffect(() => {
@@ -30,6 +32,7 @@ export default function Signin() {
                         <span>Name</span>
                         <i />
                     </div>
+
 
                     <div className={styles.inputBox}>
                         <input type="text" name="email" value={text.email} onChange={handleForm} required="required" />

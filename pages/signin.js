@@ -2,6 +2,7 @@ import styles from '../styles/Signin.module.css'
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from 'react'
+import Navbar from "../components/navbar"
 
 export default function Signin() {
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function Signin() {
 
   return (
     <>
+      <Navbar></Navbar>
       <div className={styles.container}>
         <div className={styles.box} data-aos='flip-left'>
           <form autoComplete="off" className={styles.form}>
