@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.4.4",
+    "@emailjs/browser": "^3.10.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@next/font": "13.0.7",
@@ -24,6 +25,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "react-is": "^18.2.0",
     "react-router": "^6.6.0",
     "react-router-dom": "^6.6.0",
     "react-scroll": "^1.8.9",
