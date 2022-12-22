@@ -8,7 +8,7 @@ import {
 	InputRightElement,
 } from "@chakra-ui/react";
 import React from "react";
-import styles from "../styles/Signup.module.css"
+import styles from "../styles/Signup.module.css";
 
 const Form = ({ handleInput, fullname, email, password }) => {
 	const [show, setShow] = React.useState(false);
@@ -16,38 +16,39 @@ const Form = ({ handleInput, fullname, email, password }) => {
 
 	return (
 		<Flex gap="2" flexDirection={"column"}>
-			{/* <FormControl>
-				<FormLabel>Full Name</FormLabel>
-				<Input
+			<div className={styles.inputBox}>
+				<input
 					type="text"
-					name="name"
+					name="fullname"
 					value={fullname}
 					onChange={handleInput}
-				/> */}
-				<div className={styles.inputBox}>
-              <input type="email" name="email" value={email} onChange={handleInput} required="required" />
-              <span>Full Name</span>
-              <i />
-            </div>
-			{/* </FormControl>
-			<div className={styles.inputBox}>
-				<FormLabel>Email address</FormLabel>
-				<Input type="email" name="email" value={email} onChange={handleInput}/>
+					required="required"
+				/>
+				<span>Full Name</span>
+				<i />
 			</div>
-			*/}
-			
 			<div className={styles.inputBox}>
-              <input type="email" name="email" value={email} onChange={handleInput} required="required" />
-              <span>Email</span>
-              <i />
-            </div>
+				<input
+					type="email"
+					name="email"
+					value={email}
+					onChange={handleInput}
+					required="required"
+				/>
+				<span>Email</span>
+				<i />
+			</div>
 			<div className={styles.inputBox}>
-              <input type="email" name="email" value={email} onChange={handleInput} required="required" />
-              <span>Password</span>
-              <i />
-            </div>
-
-			
+				<input
+					type="password"
+					name="password"
+					value={password}
+					onChange={handleInput}
+					required="required"
+				/>
+				<span>Password</span>
+				<i />
+			</div>
 		</Flex>
 	);
 };

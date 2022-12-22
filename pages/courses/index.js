@@ -60,10 +60,8 @@ const index = ({ All_Courses }) => {
 export default index;
 
 export async function getServerSideProps(context) {
-	let res = await fetch(`http://localhost:3000/api/courses`);
-	let data = await res.json();
-	let courses = data;
-
+	let res = await axios(`http://localhost:3000/api/courses`);
+	let courses = res.data;
 	return {
 		props: courses,
 	};
