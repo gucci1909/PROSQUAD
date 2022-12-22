@@ -22,4 +22,5 @@ razorSchema = new mongoose.Schema({
     versionKey:false,
     timestamps:true
 });
+mongoose.models = {};
 module.exports = mongoose.model("razorpays", razorSchema);
