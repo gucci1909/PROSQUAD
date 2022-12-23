@@ -7,6 +7,7 @@
 - Next.js
 - React.js
 - Socket.io
+- JWT
 - Redux
 - Node.js
 - Mongo DB
