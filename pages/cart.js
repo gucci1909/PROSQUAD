@@ -1,71 +1,132 @@
 import {
 	Box,
 	Button,
+	Flex,
 	FormControl,
 	FormLabel,
+	Heading,
 	Image,
-	Input,
+	Input, 
 	Text,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { getItem } from "../redux/localStorage";
 
-export default function Cart(cart) {
+export default function Cart() {
+	const [cart,setCart] = useState([]);
 	console.log(cart);
+	const handleData = async()=>{
+		const userID = getItem("userid");
+	    let res = await fetch(`http://localhost:3000/api/cart/${userID}`);
+	    let data = await res.json();
+		setCart(data);
+	}
+
+	useEffect(()=>{
+		handleData();
+
+	},[])
 
 	return (
 		<>
-			<Box
-				display={"flex"}
-				padding={3}
-				gap={10}
-				justifyContent={"space-around"}
-			>
-				<Box display={"flex"} width={"50%"} alignItems={"center"}>
-					<Box width={"80%"}>
-						{cart !==
-						{
-							error: "Please correct enter id in params",
-						}
-							? cart.cart?.map((ele) => {
-									return (
-										<Box border={"1px solid black"} width={"300px"} padding={2}>
-											<Image src={ele.courseID.image} alt="Linux" />
-											<Text>{ele.courseID.course_name}</Text>
-											<Button margin={"auto auto"}>Delete</Button>
-										</Box>
-									);
-							  })
-							: ""}
-					</Box>
-				</Box>
-				<Box width={"30%"}>
-					<Text fontSize={30}>Total:</Text>
-					<FormControl isRequired>
-						<FormLabel>Card Number</FormLabel>
-						<Input type="number" />
-						<FormLabel>CVV</FormLabel>
-						<Input type="number" />
-						<FormLabel>Expire Date</FormLabel>
-						<Input size="md" type="date" />
-					</FormControl>
-					<Button mt={4} background="#45F3FF" type="submit">
-						Submit
-					</Button>
-					<Button mt={4} background="#45F3FF" type="submit">
-						Pay with RazorPay
-					</Button>
-				</Box>
-			</Box>
-		</>
-	);
+		 <Box
+        borderRadius={"15px"}
+        mt={"10px"}
+        position="absolute"
+        height="600px"
+        display={"inline-block"}
+        ml={"10px"}
+        width={"55%"}
+      >
+        <Box display={"flex"} w={""} justifyContent="space-between">
+          <Heading
+            ml="100px"
+            mt="10px"
+            fontFamily={"Ubuntu, sans-serif"}
+            fontSize="26px"
+            color={"blackAlpha.500"}
+          >
+            {cart.cart
+              ? `Your Cart (${cart.cart.length})`
+              : `Your Cart (${0}))`}
+          </Heading>
+          <Text
+            mt="15px"
+            mr="118px"
+            fontFamily={"Ubuntu, sans-serif"}
+            color={"blackAlpha.700"}
+            fontSize="20px"
+          >
+            Price
+          </Text>
+        </Box>
+        <Flex
+          flexDirection={"column"}
+          height={"500px"}
+          mt={{ base: "-15px", lg: "auto" }}
+          overflow="scroll"
+        >
+			
+          {cart.cart ? cart.cart.map((el, i) => (
+              <>
+                <Flex justifyContent={"space-between"}>
+                  <Box
+                    display={"flex"}
+                    flexDirection="column"
+                    key={i}
+                    justify="right"
+                    alignItems="right"
+                    height="auto"
+                    w={{ base: "auto", lg: "auto" }}
+                    mt={{ base: "20px", lg: "20px" }}
+                    ml={{ base: "-480px", lg: "40px" }}
+                    gap="2"
+                  >
+                    <Flex gap={5}>
+                      <Image
+                        className="imageFromPayment"
+                        h="180px"
+                        maxW={"180px"}
+                        src={el.courseID.image}
+                      />
+                    </Flex>
+                    <Box>
+                      <Text
+                        h="auto"
+                        fontFamily={"Ubuntu, sans-serif"}
+                        color="teal"
+                        w="350px"
+                        fontSize={"18px"}
+                      >
+                        {el.courseID.course_name}
+                      </Text>
+                    </Box>
+                  </Box>
+                  <Text
+                    mt={{ lg: "130px" }}
+                    fontSize="24px"
+                    fontFamily={"Ubuntu, sans-serif;"}
+                    mr={{ lg: "100px" }}
+                    color="teal"
+                  >
+                    ₹ {el.courseID.selling_price}
+                  </Text>
+                </Flex>
+				{/* </Box> */}
+              </> 
+            )):""} 
+			</Flex>
+		</Box>
+		</>)
 }
 
-export async function getServerSideProps(context) {
-	const userID = getItem("userid");
-	let res = await fetch(`http://localhost:3000/api/cart/${userID}`);
-	let data = await res.json();
-	let courses = data;
-	return {
-		props: courses,
-	};
-}
+// export async function getServerSideProps(context) {
+// 	const userID = getItem("userid");
+// 	let res = await fetch(`http://localhost:3000/api/cart/${userID}`);
+// 	let data = await res.json();
+// 	let courses = {data,userID};
+
+// 	return {
+// 		props: courses,
+// 	};
+// }
