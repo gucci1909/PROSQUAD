@@ -18,7 +18,7 @@ const socket = io();
 
 function course({ data, data_chatting }) {
 	const userID = getItem("userid");
-	console.log(userID)
+	console.log(userID);
 	const [state, setState] = useState("");
 	const [message, setMessage] = useState([]);
 	const [added, setAdded] = useState(false);
@@ -45,10 +45,13 @@ function course({ data, data_chatting }) {
 	};
 	const handleAdd = async (cart_id) => {
 		try {
-			const res = await axios.post(`http://localhost:3000/api/cart`, {
-				userID: userID,
-				courseID: cart_id,
-			});
+			const res = await axios.post(
+				`https://main--dancing-selkie-b495f8.netlify.app/api/cart`,
+				{
+					userID: userID,
+					courseID: cart_id,
+				}
+			);
 			const data = res.data;
 			console.log(data);
 			if (data) {
@@ -331,13 +334,17 @@ export default course;
 export async function getServerSideProps(context) {
 	const { course } = context.query;
 
-	let res = await fetch(`http://localhost:3000/api/courses/${course}`);
+	let res = await fetch(
+		`https://main--dancing-selkie-b495f8.netlify.app/api/courses/${course}`
+	);
 	let data_1 = await res.json();
 	let data = data_1.one_course;
-	let socket = await axios.get(`http://localhost:3000/api/socket`);
+	let socket = await axios.get(
+		`https://main--dancing-selkie-b495f8.netlify.app/api/socket`
+	);
 
 	let chatting = await axios.get(
-		`http://localhost:3000/api/socket/${data.qn_room}`
+		`https://main--dancing-selkie-b495f8.netlify.app/api/socket/${data.qn_room}`
 	);
 	let data_chatting = chatting.data.Comments;
 	let all = { data, data_chatting };

@@ -25,8 +25,6 @@ export default function Signin() {
 	const toast = useToast();
 	const router = useRouter();
 
-
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(form);
@@ -40,7 +38,7 @@ export default function Signin() {
 					duration: 5000,
 					isClosable: true,
 				});
-				router.push("/dashboard");
+				router.push("/courses");
 			})
 			.catch((err) => {
 				toast({
