@@ -6,11 +6,13 @@
 
 - Next.js
 - React.js
-- React-router-dom
+- Socket.io
 - Redux
 - Node.js
 - Mongo DB
 - Chakra UI
+- AOS
+
 
 ## Screenshots
 
