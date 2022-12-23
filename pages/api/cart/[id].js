@@ -29,7 +29,7 @@ const handler = async (req, res) => {
 			// });
 			// }
 		} catch (error) {
-			console.log(error);
+			res.send(error);
 			//   if(!mongoose.connections[0].readyState){
 			//     await mongoose.connection(`mongodb+srv://umangar34:Umang2000@gucci1909.vhyhdo6.mongodb.net/prosquad?retryWrites=true&w=majority`)
 			//   }
