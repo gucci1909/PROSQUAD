@@ -14,7 +14,9 @@ const signUpApi = (payload) => (dispatch) => {
 	console.log(payload);
 	dispatch({ type: SIGNUP_REQUEST });
 	return axios
-		.post("http://localhost:3000/api/users/signup", { ...payload })
+		.post("https://main--dancing-selkie-b495f8.netlify.app/api/users/signup", {
+			...payload,
+		})
 		.then((res) => dispatch({ type: SIGNUP_SUCCESS, payload: res }))
 		.catch((err) => dispatch({ type: SIGNUP_ERROR }));
 };
@@ -22,7 +24,9 @@ const signUpApi = (payload) => (dispatch) => {
 const loginApi = (payload) => (dispatch) => {
 	dispatch({ type: LOGIN_REQUEST });
 	return axios
-		.post("http://localhost:3000/api/users/login", { ...payload })
+		.post("https://main--dancing-selkie-b495f8.netlify.app/api/users/login", {
+			...payload,
+		})
 		.then((res) => {
 			dispatch({ type: LOGIN_SUCCESS });
 			setItem("token", res.data.token);
