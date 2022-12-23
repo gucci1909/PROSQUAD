@@ -50,7 +50,7 @@ Start the server
 
 
 ### Prerequisites
-Next.js,React.js, React-Router-Dom, Axios, Redux, Nodejs, Mongo DB, Api, Chakra UI.
+Next.js, React.js, React-Router-Dom, Axios, Redux, Nodejs, Mongo DB, Api, Chakra UI.
 
 ### Setup
 VS code,
