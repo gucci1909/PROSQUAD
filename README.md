@@ -1,6 +1,6 @@
 # PROSQUAD
 
->The primary purpose of the prosquad-website is to provide technical courses and also ask questions from teachers to help out students . So, please checkout our website.
+>The primary purpose of the prosquad-website is to provide technical courses and also and also let students ask questions from teachers in Q&A section. So, please checkout our website.
 
 ## Built With
 
