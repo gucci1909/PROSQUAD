@@ -160,3 +160,20 @@
 .submit:active {
   opacity: 0.8;
 }
+/* drawer */
+.bar {
+  color:#45f3ff;
+  margin-top: -0.7rem;
+  font-size: 1.3rem;
+}
+
+.draw {
+  /* border: 1px solid red; */
+  background-color: #43b2ba;
+  font-size: large;
+  font-weight: 600;
+  line-height: 2.5em;
+  
+  
+
+}
