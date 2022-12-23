@@ -18,6 +18,7 @@ const socket = io();
 
 function course({ data, data_chatting }) {
 	const userID = getItem("userid");
+	console.log(userID)
 	const [state, setState] = useState("");
 	const [message, setMessage] = useState([]);
 	const [added, setAdded] = useState(false);
@@ -49,6 +50,7 @@ function course({ data, data_chatting }) {
 				courseID: cart_id,
 			});
 			const data = res.data;
+			console.log(data);
 			if (data) {
 				toast({
 					title: "Course have been added to Cart",

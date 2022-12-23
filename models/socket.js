@@ -9,4 +9,4 @@ const chatSchema = new mongoose.Schema({
 });
 mongoose.models = {};
 
-module.exports = mongoose.model("QAs",chatSchema);
+module.exports = mongoose.model("qas",chatSchema);
