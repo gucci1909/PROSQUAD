@@ -14,8 +14,8 @@
 
 ## Screenshots
 
-![App Screenshot]()
-![App Screenshot]()
+![App Screenshot](https://i.ibb.co/YP8d98j/Screenshot-130.png)
+![App Screenshot](https://i.ibb.co/2ydKHpV/Screenshot-132.png)
 
 
 ## Run Locally
