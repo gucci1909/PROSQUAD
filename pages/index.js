@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
 
-    <div>
+    <div >
       <div>
         <img src="https://www.teachforindia.org/assets/fellowship-desktop.png" alt="image"></img>
       </div>
