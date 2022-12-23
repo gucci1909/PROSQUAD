@@ -10,7 +10,7 @@ import {
 import React from "react";
 import styles from "../styles/Signup.module.css";
 
-const Form = ({ handleInput, fullname, email, password }) => {
+const Form = ({ handleInput, name, email, password }) => {
 	const [show, setShow] = React.useState(false);
 	const handleClick = () => setShow(!show);
 
@@ -19,8 +19,8 @@ const Form = ({ handleInput, fullname, email, password }) => {
 			<div className={styles.inputBox}>
 				<input
 					type="text"
-					name="fullname"
-					value={fullname}
+					name="name"
+					value={name}
 					onChange={handleInput}
 					required="required"
 				/>
