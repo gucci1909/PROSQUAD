@@ -7,7 +7,7 @@ import { getItem } from "../redux/localStorage";
 const dashboard = () => {
 	let role = getItem("role");
 	if (role === "admin") {
-		return <AdminDashboard />;
+		// return <AdminDashboard />;
 	} else if (role === "seller") {
 		return <TeacherDashboard />;
 	} else {
