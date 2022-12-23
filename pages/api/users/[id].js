@@ -20,8 +20,24 @@ const handler = async (req, res) => {
 				error: error,
 			});
 		}
+	} else if (req.method === "PATCH") {
+		const token = req.headers["authorization"];
+		let decode = jwt.decode(token, secrectToken);
+		const { id } = req.query;
+		if (decode.role === "admin") {
+			try {
+				let statusChanged = await users.findByIdAndUpdate(
+					id,
+					{ $set: { status: req.body.status } },
+					{ new: true }
+				);
+				return res.status(200).send(statusChanged);
+			} catch (e) {
+				return res.status(401).send(e);
+			}
+		}
 	} else {
-		res.status(403).json({ error: "Unauthorized Access" });
+		res.status(403).send("Unauthorized Access");
 	}
 };
 
