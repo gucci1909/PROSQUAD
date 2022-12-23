@@ -13,6 +13,10 @@ import {
 	Tabs,
 } from "@chakra-ui/react";
 import Form from "../components/Form";
+import { useDispatch } from "react-redux";
+import { useToast } from "@chakra-ui/react";
+import { signUpApi } from "../redux/Auth/auth.actions";
+import { useRouter } from "next/router";
 
 export default function Signin() {
 	useEffect(() => {
@@ -20,11 +24,15 @@ export default function Signin() {
 	});
 
 	const initState = {
-		fullname: "",
+		name: "",
 		email: "",
 		password: "",
 		role: "student",
 	};
+	const dispatch = useDispatch();
+	const toast = useToast();
+	const router = useRouter();
+
 	const [form, setForm] = useState(initState);
 	const handleInput = ({ target: { name, value } }) => {
 		setForm({ ...form, [name]: value });
@@ -32,7 +40,28 @@ export default function Signin() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		
+		dispatch(signUpApi(form))
+			.then((res) => {
+				toast({
+					title: "New user added! Welcome✨",
+					description: "It's a start of something amazing.",
+					position: "top",
+					status: "success",
+					duration: 5000,
+					isClosable: true,
+				});
+				router.push("/signin");
+			})
+			.catch((err) => {
+				toast({
+					title: "Internal server error!",
+					description: "Please try after sometime.",
+					position: "top",
+					status: "error",
+					duration: 5000,
+					isClosable: true,
+				});
+			});
 	};
 
 	return (
@@ -77,7 +106,7 @@ export default function Signin() {
 
 					<div className={styles.links}>
 						<Link to="#">Already Have Account ?</Link>
-						<Link href="/signin">Signin</Link>
+						<Link onClick={() => router.push("/signin")}>Signin</Link>
 					</div>
 				</form>
 			</div>
